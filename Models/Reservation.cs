@@ -29,6 +29,8 @@ public class Reservation
 
     public decimal CalculateDailyRate()
     {
-        return Suite.DailyValue * ReservedDays;
+        var discountIndicator = ReservedDays >= 10 ? 0.90M : 1.0M;
+
+        return (Suite.DailyValue * ReservedDays) * discountIndicator;
     }
 }
